@@ -7,7 +7,7 @@
 
 ## About The Project
 
-The project is about Classifying Satellite Imagery using Deep Learning. The primary goal of this project is to demonstrate the ability and run a high-accuracy yet tiny model on a Raspberry Pi Pico microcontroller. To that end, various model architectures are explored. State-of-the-Art models are built only for demonstration purposes. Transfer Learning is explored to demonstrate the possibility of fine-tuning models for different types of satellites. Finally, a small high accuracy model is built which is deployed on the Pico successfully. A script which runs on the host sends images to the Pico and collects results in a CSV. The results and the final model are evaluated too. TensorFlow Lite is used to convert and deploy the model on the Pico.
+The project focuses on utilizing Deep Learning to classify Satellite Imagery, aiming to showcase the feasibility of running a highly accurate yet compact model on a Raspberry Pi Pico microcontroller. This involves exploring diverse model architectures, building State-of-the-Art models for demonstrative purposes, and investigating Transfer Learning for adapting models to various satellite types. Ultimately, a small, high-accuracy model is developed and successfully deployed on the Raspberry Pi Pico. A script running on the host system sends images to the Pico, collects results in a CSV format, and evaluates both the results and the final model. TensorFlow Lite is employed to convert and deploy the model on the Raspberry Pi Pico.
 
 ----
 
@@ -33,8 +33,6 @@ notebooks/
   7.transfer-learning-models.ipynb      # Transfer Learning Models
   8.sota-models.ipynb                   # State-of-the-Art Models
   core.py                               # Helper Functions
-
-notebooks-html/             # All notebooks compiled into HTML files
 
 pico/
   lib/pico-tflmicro         # Git submodule of TFLiteMicro for Pico
