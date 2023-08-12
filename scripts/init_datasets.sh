@@ -11,9 +11,9 @@ CURRENT_DIR=$(dirname $(realpath -s "$0"))
 DATASETS="$CURRENT_DIR/../datasets/"
 
 # Delete the `datasets` directory and the temporary directories
-rm -irf $DATASETS
-rm -irf /tmp/eurosat
-rm -irf /tmp/uc_merced
+rm -rf $DATASETS
+rm -rf /tmp/eurosat
+rm -rf /tmp/uc_merced
 
 # Ensure directory to cache original dataset downloads exists
 mkdir $CURRENT_DIR/../.cache
@@ -26,10 +26,11 @@ mkdir $DATASETS
 # The EuroSAT dataset is my primary dataset for the Final Project.
 
 # Download the EuroSAT dataset file
-wget -nc https://madm.dfki.de/files/sentinel/EuroSAT.zip -O $CURRENT_DIR/../.cache/eurosat.zip
+wget -nc https://madm.dfki.de/files/sentinel/EuroSAT.zip --no-check-certificate 
+mv EuroSAT.zip $CURRENT_DIR/../.cache/eurosat.zip
 
 # Unzip the dataset
-unzip -q -n -x -d /tmp/eurosat_tmp $CURRENT_DIR/../.cache/eurosat.zip
+unzip $CURRENT_DIR/../.cache/eurosat.zip -d /tmp/eurosat_tmp
 
 # Move the inner directory to a tmp location
 mv /tmp/eurosat_tmp/2750/ /tmp/eurosat
@@ -51,10 +52,11 @@ python3 $CURRENT_DIR/prep_images_for_pico.py
 # The UC Merced Dataset is used to perform transfer learning from the EuroSAT Dataset.
 
 # Download the UC Merced dataset file
-wget -nc http://weegee.vision.ucmerced.edu/datasets/UCMerced_LandUse.zip -O $CURRENT_DIR/../.cache/uc_merced.zip
+wget -nc http://weegee.vision.ucmerced.edu/datasets/UCMerced_LandUse.zip --no-check-certificate 
+mv UCMerced_LandUse.zip $CURRENT_DIR/../.cache/uc_merced.zip
 
 # Unzip the dataset
-unzip -q -n -x -d /tmp/uc_merced_tmp $CURRENT_DIR/../.cache/uc_merced.zip
+unzip $CURRENT_DIR/../.cache/uc_merced.zip -d /tmp/uc_merced_tmp
 
 # Create a tmp directory
 mkdir /tmp/uc_merced
